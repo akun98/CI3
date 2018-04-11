@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>BLOG</title>
+  <title>Framework</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -75,17 +75,17 @@
           </tr>
           <tr>
             <td class="text-center">
-              <img src="../../img/<?php echo $key->gambar_blog;?>" alt="Image" width="500" >
+              <img src="../../gambar/<?php echo $key->gambar_blog;?>" alt="Image" width="500" >
             </td>
           </tr>
           <tr>
             <td class="text-center">
-              Diupload tanggal : <?php echo $key->tgl_blog; ?><br><br>
+              Diupload tanggal : <?php echo $key->tanggal_blog; ?><br><br>
             </td>
           </tr>
           <tr>
             <td class="text-justify">
-              <?php echo $key->content; ?>
+              <?php echo $key->konten; ?>
             </td>
           </tr>
         </table>

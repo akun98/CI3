@@ -65,23 +65,27 @@
     </div>
   </div>
 </nav>
-  
+  <a href="v_blog/add" class="btn btn-primary">Add Artikel</a>
       <?php foreach ($artikel as $key): ?>
 
         <div class="well well-sm">
           <div class="row">
+
             <div class="col-sm-12 col-md-12">
               <h3><?php echo $key->judul_blog ?></h3>
               <br>
-              <img src="img/<?php echo $key->gambar_blog;?>" alt="Image" width="500">
+              <img src="gambar/<?php echo $key->gambar_blog;?>" alt="Image" width="500">
               <p>
-                diupload tanggal : <?php echo $key->tgl_blog ?><br>
-                <a href="<?php echo site_url()?>Blog/detail/<?php echo $key->id_blog ?>">Read More ...</a>
+                diupload tanggal : <?php echo $key->tanggal_blog ?><br>
+                <a href="<?php echo site_url()?>V_blog/detail/<?php echo $key->id_blog ?>">Read More ...</a>
               </p>
+              <a href='<?php echo site_url()?>v_blog/edit/<?php echo $key->id_blog ?>' class='btn btn-sm btn-info'>Update</a>
+              <a href='<?php echo site_url()?>v_blog/delete/<?php echo $key->id_blog ?>' class='btn btn-sm btn-danger'>Hapus</a>
             </div>
           </div>
         </div>
         <?php endforeach ?>
+
 
 <footer class="container-fluid text-center">
   <p>Footer Text</p>
