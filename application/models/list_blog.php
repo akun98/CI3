@@ -51,19 +51,25 @@ class List_Blog extends CI_Model {
 			'judul_blog' => $this->input->post('judul_blog'),
 			'tanggal_blog' => $this->input->post('tanggal_blog'),
 			'konten' => $this->input->post('konten'),
+			'penulis' => $this->input->post('penulis'),
+			'email' => $this->input->post('email'),
+			'genre' => $this->input->post('genre'),
 			'gambar_blog' => $upload['file']['file_name']		
 		);
 		
 		$this->db->insert('biodata', $data);
 	}
-
+ 
 	public function update($post, $id){
 		//parameter $id wajib digunakan agar program tahu ID mana yang ingin diubah datanya.
 		$judul_blog = $this->db->escape($post['judul_blog']);
 		$tanggal_blog = $this->db->escape($post['tanggal_blog']);
 		$konten = $this->db->escape($post['konten']);
+		$penulis = $this->db->escape($post['penulis']);
+		$email = $this->db->escape($post['email']);
+		$genre = $this->db->escape($post['genre']);
 
-		$sql = $this->db->query("UPDATE biodata SET judul_blog = $judul_blog, tanggal_blog = $tanggal_blog, konten = $konten WHERE id_blog = ".intval($id));
+		$sql = $this->db->query("UPDATE biodata SET judul_blog = $judul_blog, tanggal_blog = $tanggal_blog, konten = $konten, penulis = $penulis, email = $email, genre = $genre WHERE id_blog = ".intval($id));
 
 		return true;
 	}

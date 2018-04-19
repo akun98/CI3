@@ -12,7 +12,7 @@
   <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">My Blog</a>
+          <a class="navbar-brand" href="v_blog">My Blog</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -25,43 +25,50 @@
     </nav>
     <br><br><br>
 
-  <div class="container">
-    <h1><?=$tipe?> Articel</h1>
-    <form method="post" class="form-horizontal" enctype="multipart/form-data">
-      <div class="form-group">
-        <label class="control-label col-sm-2">
-          Judul
-        </label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" name="judul_blog" value="<?=isset($default['judul_blog'])? $default['judul_blog'] : ""?>" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-sm-2">
-          Date          
-        </label>
-        <div class="col-sm-10">
-          <input type="date" required class="form-control" name="tanggal_blog" value="<?=isset($default['tanggal_blog'])? $default['tanggal_blog'] : ""?>">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-sm-2">
-          Content         
-        </label>
-        <div class="col-sm-10">
-          <textarea name="konten" class="form-control" required><?=isset($default['konten'])? $default['konten'] : ""?></textarea>
-        </div>
-      </div>
-      <div class="form-group">
-          <label class="control-label col-sm-2">Gambar :</label>
-         
-          <div class="col-sm-10">
-            <span class="input-group-addon"><input type="file" required name="gambar_blog" class="file"></span>
-          </div><br>
-        </div>
-      <center>
-      <input class="btn btn-primary" type="submit" name="simpan" value="simpan">
-      </center>
+ <div class="container">
+    <?php echo validation_errors(); ?>
+      <?php echo form_open('v_blog/add', array('enctype'=>'multipart/form-data')); ?>
+      <table>
+        <tr>
+          <td>Judul</td>
+          <td>:</td>
+          <td><input type="text" name="judul_blog" value="<?php echo set_value('judul_blog'); ?>"></td>
+        </tr>
+        <tr>
+          <td>Content</td>
+          <td>:</td>
+          <td><input type="text" name="konten" value="<?php echo set_value('konten') ?>"></td>
+        </tr>
+        <tr>
+          <td>Tanggal </td>
+          <td>:</td>
+          <td><input type="date" name="tanggal_blog" value="<?php echo set_value('tanggal_blog') ?>"></td>
+        </tr>
+        <tr>
+          <td>Penulis </td>
+          <td>:</td>
+          <td><input type="text" name="penulis" value="<?php echo set_value('penulis') ?>"></td>
+        </tr>
+        <tr>
+          <td>Email </td>
+          <td>:</td>
+          <td><input type="text" name="email" value="<?php echo set_value('email') ?>"></td>
+        </tr>
+        <tr>
+          <td>Genre </td>
+          <td>:</td>
+          <td><input type="text" name="genre" value="<?php echo set_value('genre') ?>"></td>
+        </tr>
+        <tr>
+          <td>Gambar</td>
+          <td>:</td>
+          <td><input type="file" name="gambar_blog" value="<?php echo set_value('gambar_blog') ?>"></td>
+        </tr>
+        <tr>
+          <td colspan="3"><input type="submit" name="simpan" value="simpan"></td>
+        </tr>
+      </table>
+    </div>
     </form>
   </div>
 </body>
