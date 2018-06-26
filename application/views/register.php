@@ -49,6 +49,21 @@
 	</div>
 </div>
 <br>
+<div class="form-group">
+    <label for="">Pilih Paket Membership</label>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="membership" 
+id="gold" value="2" checked>
+        <label class="form-check-label" for="gold">Gold</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="membership" 
+id="silver" value="3">
+        <label class="form-check-label" for="silver">Silver</label>
+    </div>
+</div>
+
+<br>
 <br>
 <br>
  <button type="submit" class="btn btn-primary btn-block">Daftar</button>

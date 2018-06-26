@@ -1,29 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <base href="<?=base_url()?>">
-  <meta charset="UTF-8">
-  <title>Adit Blog</title>
-  <link rel="stylesheet" href="css/style.css"> 
-  <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/bootstrap.min.css" type="text/css">
-  <script src="<?php echo base_url()?>assets/css/bootstrap.js" type="text/javascript"></script>
-</head>
-<body>
-  <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="<?php echo base_url()?>category">My Category</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="web">Home</a></li>
-            <li><a href="web">About</a></li>
-            <li class="active"><a href="v_blog">Blog</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<?php if (!$this->session->userdata('logged_in')) {
+  redirect('ctr_user/login');
+} ?>
+
+<?php $this->load->view("template/header"); ?>
     <br><br><br>
+    <h1 class="text-center">FORM UPDATE KATEGORI</h1>
+    <br><br>
 
  <div class="container">
   <form method="post" class="form-horizontal" enctype="multipart/form-data">
@@ -48,5 +30,5 @@
         </tr>
       </table>
   </div>
-</body>
-</html>
+  <br><br><br>
+<?php $this->load->view("template/footer"); ?>

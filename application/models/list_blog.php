@@ -3,9 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class List_Blog extends CI_Model {
 
-	public function get_artikels(){
+	public function get_artikel($limit = FALSE, $offset = FALSE){
+		if ( $limit ) {
+ 			$this->db->limit($limit, $offset);
+ 		}
+
 		$query = $this->db->get('biodata');
 		return $query->result();
+	}
+
+	public function get_total(){
+		return $this->db->count_all("biodata");
 	}	
 
 	public function get_single($id)
@@ -54,7 +62,8 @@ class List_Blog extends CI_Model {
 			'penulis' => $this->input->post('penulis'),
 			'email' => $this->input->post('email'),
 			'genre' => $this->input->post('genre'),
-			'gambar_blog' => $upload['file']['file_name']		
+			'gambar_blog' => $upload['file']['file_name'],
+			'cat_id' => $this->input->post('cat_id')		
 		);
 		
 		$this->db->insert('biodata', $data);
@@ -68,8 +77,9 @@ class List_Blog extends CI_Model {
 		$penulis = $this->db->escape($post['penulis']);
 		$email = $this->db->escape($post['email']);
 		$genre = $this->db->escape($post['genre']);
+		$cat_id = $this->db->escape($post['cat_id']);
 
-		$sql = $this->db->query("UPDATE biodata SET judul_blog = $judul_blog, tanggal_blog = $tanggal_blog, konten = $konten, penulis = $penulis, email = $email, genre = $genre WHERE id_blog = ".intval($id));
+		$sql = $this->db->query("UPDATE biodata SET judul_blog = $judul_blog, tanggal_blog = $tanggal_blog, konten = $konten, penulis = $penulis, email = $email, genre = $genre, cat_id = $cat_id WHERE id_blog = ".intval($id));
 
 		return true;
 	}
