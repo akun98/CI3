@@ -38,6 +38,12 @@ class ctr_user extends CI_Controller{
  		}
  	}
 
+ 	//untuk memanggil sesion level 
+	public function get_userdata(){
+        $userData = $this->session->userdata();
+        return $userData;
+    }
+
  	public function login(){
 
 		$this->form_validation->set_rules('username', 'Username', 'required');
@@ -64,21 +70,21 @@ class ctr_user extends CI_Controller{
 			'user_id' => $user_id,
 			'username' => $username,
 			'logged_in' => true,
-			'level' => $this->model_user->get_user_level($user_id),
+			'fk_level_id' => $this->model_user->get_user_level($user_id),
 		);
 
 		$this->session->set_userdata($user_data);
 
 		// Set message
 		$this->session->set_flashdata('user_loggedin', 'Anda sudah login');
-		redirect('dashboard');
+		redirect('ctr_user/dashboard');
 
 		//redirect('web');
 	} else {
 		// Set message
 		$this->session->set_flashdata('login_failed', 'username atau password salah');
 
-		redirect('web');
+		redirect('ctr_user/login');
 	}		
 		}
 	}
@@ -93,26 +99,42 @@ class ctr_user extends CI_Controller{
 		// Set message
 		$this->session->set_flashdata('user_loggedout', 'Anda sudah log out');
 
-		redirect('web');
+		redirect('ctr_user/logout');
 	}
 
 	 // Dashboard
-    public function dashboard(){
+     public function dashboard(){
 
         if(!$this->session->userdata('logged_in')){
-            redirect('user/login');
+            redirect('ctr_user/login');
         }
 
         $username = $this->session->userdata('username');
 
         // Dapatkan detail user
-        $data['user'] = $this->user_model->get_user_details( $username );
+        $data['user'] = $this->model_user->get_user_details( $username );
+
+ 		$userData = $this->get_userdata();
+        if ($userData['fk_level_id'] === '1'){
+            $this->load->view('template/header');
+            $this->load->view('dashboard', $data);
+            $this->load->view('template/footer');
+        } else if ($userData['fk_level_id'] === '2'){
+            $this->load->view('template/header');
+            $this->load->view('v_user1', $data);
+            $this->load->view('template/footer');
+        } else if ($userData['fk_level_id'] === '3') {
+            $this->load->view('template/header');
+            $this->load->view('v_user2', $data);
+            $this->load->view('template/footer');
+        }
+    }
 
         // Load dashboard
-        $this->load->view('templates/header');
-        $this->load->view('users/dashboard', $data);
-        $this->load->view('templates/footer');
+        //$this->load->view('template/header');
+        //$this->load->view('dashboard', $data);
+        //$this->load->view('template/footer');
     }
 
 
- }
+ 

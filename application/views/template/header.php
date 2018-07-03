@@ -61,6 +61,7 @@
         <li><a href="<?php echo base_url() ?>category">Kategori</a></li>  
       </ul>
 
+
        <?php if(!$this->session->userdata('logged_in')) : ?>
             <div class="btn-group" role="group" aria-label="Data baru">
                 <?php echo anchor('ctr_user/register', 'Register', array('class' => 'btn btn-outline-light')); ?>
@@ -70,6 +71,7 @@
 
             <?php if($this->session->userdata('logged_in')) : ?>
                 <div class="btn-group" role="group" aria-label="Data baru">
+
                 <?php echo anchor('ctr_user/logout', 'Logout', array('class' => 'btn btn-outline-light')); ?>
                 </div>
             <?php endif; ?>

@@ -43,7 +43,7 @@ class model_user extends CI_Model{
 
 
         if($result->num_rows() == 1){
-            return $result->row(0);
+            return $result->row(0)->fk_level_id;
         } else {
             return false;
         }
@@ -51,6 +51,8 @@ class model_user extends CI_Model{
 
     public function get_user_details( $username )
    {
+
+        $this->db->join('levels', 'levels.level_id = user.fk_level_id', 'left');
        $this->db->where('username', $username);
 
        $result = $this->db->get('user');
