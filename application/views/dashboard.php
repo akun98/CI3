@@ -10,11 +10,17 @@
    		<div class="row">
    			<div class="col-sm"></div>
    			<div class="col-sm">
-   				<a href="<?php echo site_url()?>V_Blog/add/">
+   				<a href="<?php echo site_url()?>home/">
 	   				<img src="../assets/img/edit.png" class="img-fluid"> <br><br>
-		   			<h4>Create News</h4>
+		   			<h4>Manajemen Web</h4>
 	   			</a>
    			</div>
+        <div class="col-sm">
+          <a href="<?php echo site_url()?>crud_user/">
+            <img src="../assets/img/categori.jpg" class="img-fluid"> <br><br>
+            <h4>Manajemen User</h4>
+          </a>
+        </div>
 	   		<div class="col-sm"></div>
 	    </div>
    </div>

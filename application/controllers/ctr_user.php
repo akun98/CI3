@@ -99,7 +99,7 @@ class ctr_user extends CI_Controller{
 		// Set message
 		$this->session->set_flashdata('user_loggedout', 'Anda sudah log out');
 
-		redirect('ctr_user/logout');
+		redirect('ctr_user/login');
 	}
 
 	 // Dashboard

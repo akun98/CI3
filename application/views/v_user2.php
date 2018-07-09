@@ -9,7 +9,7 @@
    		<div class="row">
    			<div class="col-sm"></div>
    			<div class="col-sm">
-   				<a href="<?php echo base_url().'blog/insert_news'?>">
+   				<a href="<?php echo base_url().'v_blog/add'?>">
 	   				<img src="../assets/img/edit.png" class="img-fluid"> <br><br>
 		   			<h4>Create News</h4>
 	   			</a>

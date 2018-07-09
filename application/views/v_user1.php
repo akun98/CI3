@@ -21,9 +21,9 @@
 	   			</a>
 	   		</div>
 	   		<div class="col-sm">
-	   			<a href="<?php echo site_url()?>Datatablesctr/">
+	   			<a href="<?php echo site_url()?>v_blog/">
 	   				<img src="../assets/img/table.jpg" class="img-fluid"> <br><br>
-	   				<h4>Data Table</h4>
+	   				<h4>Blog</h4>
 	   			</a>
 	   		</div>    
 	   		<div class="col-sm"></div>
